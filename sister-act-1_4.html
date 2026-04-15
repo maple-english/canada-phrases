@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sister Act ① - 映画フレーズ集 🎬</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .location-tag {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .phrase-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .phrase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .phrase-card.mastered {
+            border: 3px solid #ffd700;
+            background: #fffef7;
+        }
+
+        /* チェックボックスエリア */
+        .usage-tracker {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .usage-tracker h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.05em;
+        }
+
+        .checkbox-item.checked {
+            background: rgba(255,215,0,0.3);
+        }
+
+        .mastery-badge {
+            background: #ffd700;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .usage-count {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .phrase-title {
+            font-size: 1.8em;
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .meaning {
+            background: #f0f4ff;
+            padding: 10px 15px;
+            border-left: 4px solid #667eea;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .native-feeling {
+            background: #fff4e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .native-feeling h3 {
+            color: #ff6b6b;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .examples {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .examples h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .example-item {
+            margin: 8px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .example-item:before {
+            content: "💬";
+            position: absolute;
+            left: 0;
+        }
+
+        .movie-context {
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-style: italic;
+            color: #e65100;
+        }
+
+        .bonus-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .bonus-section h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .tip-box {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid white;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .daily-use {
+            background: #4caf50;
+            color: white;
+        }
+
+        .formal {
+            background: #2196f3;
+            color: white;
+        }
+
+        .casual {
+            background: #ff9800;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .phrase-title {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Sister Act ① フレーズ集</h1>
+            <p class="subtitle">映画から学ぶネイティブ表現 × カナダ留学で使える実用英語</p>
+            <span class="location-tag">🇨🇦 カナダ留学中に使おう！</span>
+        </header>
+
+        <!-- 超実用フレーズ -->
+        <div class="phrase-card">
+            <div class="phrase-title">Take it easy</div>
+            <span class="category-badge daily-use">超頻出</span>
+            <span class="category-badge casual">カジュアル</span>
+            
+            <div class="meaning">
+                <strong>意味：</strong>落ち着いて / じゃあね / 気楽にね / リラックスして
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>「力抜いて、リラックスして」という温かい気持ち。別れ際の挨拶として超定番で、相手の幸せを願う優しいトーン。"Have a good one"と同じくらいカジュアルに使われる。</p>
+            </div>
+
+            <div class="examples">
+                <h3>💬 ネイティブの使用例（シーン別）</h3>
+                
+                <div class="example-item">
+                    <strong>【別れ際の挨拶】</strong><br>
+                    A: "Alright, I gotta go. See you tomorrow!"<br>
+                    B: "Yeah, take it easy!"<br>
+                    A: "You too, man."<br>
+                    <em>→ "Bye"の代わりに超頻繁に使う</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【週末前の挨拶】</strong><br>
+                    A: "I'm done for the week. Have a good weekend!"<br>
+                    B: "Thanks! You take it easy too!"<br>
+                    <em>→ 週末や休暇前によく使う</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【焦ってる友達に】</strong><br>
+                    A: "Oh no, I'm gonna be late for class!"<br>
+                    B: "Hey, take it easy. You still have 10 minutes."<br>
+                    <em>→ 「落ち着いて」という意味</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【ストレス溜まってる人に】</strong><br>
+                    A: "I have three exams next week, I'm so stressed!"<br>
+                    B: "Take it easy. You'll be fine. Just study a little each day."<br>
+                    <em>→ 励ましの意味も含む</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【お店を出る時】</strong><br>
+                    店員: "Thanks for coming!"<br>
+                    あなた: "Thank you! Take it easy!"<br>
+                    <em>→ お店の人にも気軽に使える</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【電話を切る時】</strong><br>
+                    A: "Okay, I'll talk to you later."<br>
+                    B: "Sounds good. Take it easy!"<br>
+                    <em>→ 電話の締めくくりとして自然</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【仕事・勉強終わりに】</strong><br>
+                    教授: "Good work today, everyone. Take it easy!"<br>
+                    学生たち: "Thanks, professor!"<br>
+                    <em>→ 「お疲れ様」のニュアンス</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>⚠️ 注意】体調悪い人に</strong><br>
+                    A: "I'm not feeling well today."<br>
+                    B: "Oh no! Take it easy and get some rest."<br>
+                    <em>→ 「無理しないで」という意味</em>
+                </div>
+            </div>
+
+            <div class="native-feeling" style="background: #e8f5ff; margin-top: 20px;">
+                <h3>🎯 カナダで実際に聞く頻度</h3>
+                <p><strong>毎日5回以上は確実に聞く！</strong></p>
+                <p style="margin-top: 10px;">
+                    • Tim Hortonsで<br>
+                    • 図書館を出る時<br>
+                    • クラスメイトと別れる時<br>
+                    • バスの運転手さんが言う<br>
+                    • 金曜日の夕方は特に多い
+                </p>
+                <p style="margin-top: 10px; font-weight: bold;">
+                    返事は "You too!" / "Yeah, you too!" / "Thanks, you too!" が定番
+                </p>
+            </div>
+
+            <!-- 使用記録トラッカー -->
+            <div class="usage-tracker">
+                <h4>📝 使用記録</h4>
+                <div class="checkbox-group">
+                    <div class="checkbox-item" onclick="toggleCheck(this, 'take_it_easy_today')">
+                        <input type="checkbox" id="take_it_easy_today">
+                        <label for="take_it_easy_today">✅ 今日使った！</label>
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this, 'take_it_easy_week')">
+                        <input type="checkbox" id="take_it_easy_week">
+                        <label for="take_it_easy_week">🔥 今週3回以上使った</label>
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this, 'take_it_easy_master')">
+                        <input type="checkbox" id="take_it_easy_master">
+                        <label for="take_it_easy_master">🏆 完全にマスター（無意識で使える）</label>
+                    </div>
+                </div>
+                <div class="usage-count" id="take_it_easy_count">使用回数: 0回</div>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">Get outta here</div>
+            <span class="category-badge daily-use">超頻出</span>
+            <span class="category-badge casual">カジュアル</span>
+            
+            <div class="meaning">
+                <strong>意味：</strong>①出てけ（怒り） ②マジで!?（驚き）
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>文脈とトーンで180度変わる魔法のフレーズ！友達同士の会話では、ほぼ100%「マジで!?」という驚きの意味。信じられない話を聞いた時の自然な反応。</p>
+            </div>
+
+            <div class="examples">
+                <h3>💬 ネイティブの使用例（驚きパターン）</h3>
+                
+                <div class="example-item">
+                    <strong>【良いニュースへの反応】</strong><br>
+                    A: "I got accepted to UofT!"<br>
+                    B: "Get outta here! Really?? Congratulations!"<br>
+                    A: "Yeah, I just got the email!"<br>
+                    <em>→ 嬉しい驚きを表現</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【信じられない話】</strong><br>
+                    A: "I saw a moose on my way to school this morning."<br>
+                    B: "Get outta here! In Toronto??"<br>
+                    A: "I know, right? I couldn't believe it either."<br>
+                    <em>→ 「まさか!」というニュアンス</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【天気のニュース】</strong><br>
+                    A: "They're saying it might snow tomorrow."<br>
+                    B: "Get outta here! It's April!"<br>
+                    A: "I know, but this is Canada..."<br>
+                    <em>→ カナダあるあるの反応</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【有名人の目撃】</strong><br>
+                    A: "I think I saw Drake at the coffee shop."<br>
+                    B: "Get outta here! No way! Did you talk to him?"<br>
+                    A: "I was too nervous!"<br>
+                    <em>→ トロントならではの会話</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【値段の話】</strong><br>
+                    A: "This apartment is $3000 a month for a one-bedroom."<br>
+                    B: "Get outta here! That's insane!"<br>
+                    <em>→ トロントの家賃あるあるで使える</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【試験結果】</strong><br>
+                    A: "I got 98% on the final!"<br>
+                    B: "Get outta here! That's amazing! How did you do it?"<br>
+                    <em>→ 驚きと称賛を同時に表現</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【スポーツの話】</strong><br>
+                    A: "The Leafs actually won last night!"<br>
+                    B: "Get outta here! I can't believe it!"<br>
+                    <em>→ トロントホッケーファンなら使う場面多い</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【偶然の出会い】</strong><br>
+                    A: "I ran into our high school teacher at the mall."<br>
+                    B: "Get outta here! What are the chances?"<br>
+                    <em>→ 偶然に対する驚き</em>
+                </div>
+            </div>
+
+            <div class="examples" style="background: #fff4e6; margin-top: 20px;">
+                <h3>😠 怒りパターン（使う機会は少ないけど知っておこう）</h3>
+                
+                <div class="example-item">
+                    <strong>【本気で怒った時】</strong><br>
+                    "Get outta here! I don't want to see you right now!"<br>
+                    <em>→ 低いトーン、強い口調で言う</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【冗談でからかう時】</strong><br>
+                    A: "I ate the last slice of pizza."<br>
+                    B: "Get outta here! That was mine!" (笑いながら)<br>
+                    <em>→ 友達同士の軽い冗談</em>
+                </div>
+            </div>
+
+            <div class="native-feeling" style="background: #e8f5ff; margin-top: 20px;">
+                <h3>🎯 発音と使い分けのコツ</h3>
+                <p><strong>発音：</strong> "Get out of here" → "Get outta here"（ゲッタウタヒア）</p>
+                <p style="margin-top: 10px;"><strong>驚きの時：</strong> 語尾を上げる ⤴ + 笑顔</p>
+                <p><strong>怒りの時：</strong> 語尾を下げる ⤵ + 真顔</p>
+                <p style="margin-top: 10px;"><strong>カナダでの頻度：</strong> 週に5-10回は聞く。特に大学生同士の会話で頻出。</p>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">I'm outta here</div>
+            <span class="category-badge daily-use">超頻出</span>
+            <span class="category-badge casual">カジュアル</span>
+            
+            <div class="movie-context">
+                🎬 映画では：デロリスが修道院から出ようとする場面
+            </div>
+
+            <div class="meaning">
+                <strong>意味：</strong>もう行くわ / 出るわ / 帰るわ
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>"I'm out of here"のカジュアル発音。「この場を離れる」という意思表示。友達同士で超頻繁に使う。フォーマルな場面では使わない。</p>
+            </div>
+
+            <div class="examples">
+                <h3>💬 ネイティブの使用例（シーン別）</h3>
+                
+                <div class="example-item">
+                    <strong>【授業後・仕事終わりに】</strong><br>
+                    A: "Alright guys, I'm outta here. See you tomorrow!"<br>
+                    B: "Cool, see you!"<br>
+                    <em>→ 帰る時の定番フレーズ</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【図書館を出る時】</strong><br>
+                    友達: "You leaving?"<br>
+                    あなた: "Yeah, I'm outta here. Need to grab dinner."<br>
+                    <em>→ カジュアルな退出宣言</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【パーティーを抜ける時】</strong><br>
+                    A: "It's getting late. I'm outta here."<br>
+                    B: "Already? Okay, get home safe!"<br>
+                    <em>→ 友達に一言伝えて帰る</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【つまらない状況から】</strong><br>
+                    A: "This movie is so boring."<br>
+                    B: "Yeah, I'm outta here. Want to get coffee instead?"<br>
+                    <em>→ その場を離れる決断</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【カフェで勉強終わり】</strong><br>
+                    友達: "Still studying?"<br>
+                    あなた: "Nah, I'm done. I'm outta here."<br>
+                    <em>→ 作業を終えて帰る時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【グループチャットで】</strong><br>
+                    "Okay guys, I gotta sleep. I'm outta here. Good night! 💤"<br>
+                    <em>→ オンラインでも使える</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【急いで出る時】</strong><br>
+                    "Oh shoot, my bus is coming! I'm outta here!"<br>
+                    <em>→ 急ぎの退出を伝える</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【週末前の退勤】</strong><br>
+                    A: "You done for the week?"<br>
+                    B: "Yep! I'm outta here. Have a great weekend!"<br>
+                    <em>→ 解放感のあるトーン</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【気まずい状況から】</strong><br>
+                    "Okay, this is getting awkward. I'm outta here."<br>
+                    <em>→ 半分冗談、半分本気で使う</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【寒い外から】</strong><br>
+                    "It's freezing! I'm outta here, heading inside."<br>
+                    <em>→ カナダの冬によく使う</em>
+                </div>
+            </div>
+
+            <div class="native-feeling" style="background: #e8f5ff; margin-top: 20px;">
+                <h3>🎯 似た表現との使い分け</h3>
+                <p><strong>カジュアル度：</strong></p>
+                <p style="margin-top: 8px;">• "I'm outta here" - すごくカジュアル 🔥</p>
+                <p>• "I'm heading out" - 少しフォーマル</p>
+                <p>• "I'm leaving" - ニュートラル</p>
+                <p>• "I gotta go" - 急いでる感じ</p>
+                
+                <p style="margin-top: 15px;"><strong>発音：</strong> "I'm out of here" → "I'm outta here"（アイム アウタ ヒア）</p>
+                
+                <p style="margin-top: 15px;"><strong>カナダでの頻度：</strong> 毎日聞く。特に大学生・若者が多用。</p>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">Up and at 'em</div>
+            <span class="category-badge casual">カジュアル</span>
+            
+            <div class="meaning">
+                <strong>意味：</strong>さあ起きて! / 行動開始! / よっしゃ行くぞ!
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>"Up and at them"の省略。朝の「よっしゃ行くぞ!」という元気な掛け声。ポジティブで活動的なエネルギーを表現。古き良きアメリカ英語の雰囲気も。</p>
+            </div>
+
+            <div class="examples">
+                <h3>💬 ネイティブの使用例</h3>
+                
+                <div class="example-item">
+                    <strong>【朝、誰かを起こす時】</strong><br>
+                    親: "Come on, kids! Up and at 'em! Time for school!"<br>
+                    <em>→ 元気よく起こす定番フレーズ</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【自分自身に気合い入れる】</strong><br>
+                    "Alright, up and at 'em! Let's get this done!"<br>
+                    <em>→ 朝一番の仕事を始める時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【コーチ・先生が使う】</strong><br>
+                    コーチ: "Okay team, up and at 'em! Let's start practice!"<br>
+                    <em>→ チームを鼓舞する時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【朝のルームメイト】</strong><br>
+                    A: "I don't want to get up..."<br>
+                    B: "Come on! Up and at 'em! We have class in 30 minutes!"<br>
+                    <em>→ 友達を起こす時に使える</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【休憩後の再開】</strong><br>
+                    "Break's over everyone. Up and at 'em!"<br>
+                    <em>→ 作業再開の合図</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【週明けの月曜日】</strong><br>
+                    "Monday morning! Up and at 'em! New week, new opportunities!"<br>
+                    <em>→ ポジティブに週をスタート</em>
+                </div>
+            </div>
+
+            <div class="native-feeling" style="background: #fff4e6; margin-top: 20px;">
+                <h3>🎯 使用上の注意</h3>
+                <p><strong>誰が使う？</strong></p>
+                <p style="margin-top: 8px;">• 親が子供に</p>
+                <p>• コーチが選手に</p>
+                <p>• 元気な人が周りに</p>
+                <p>• 自分自身を鼓舞する時</p>
+                
+                <p style="margin-top: 15px;"><strong>トーン：</strong> 明るく元気に！暗いトーンで言うと変。</p>
+                
+                <p style="margin-top: 15px;"><strong>カナダでの頻度：</strong> たまに聞く。特に朝やスポーツの場面。少し古風な表現なので、若者より年配の人が使いがち。</p>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">We don't want to be late</div>
+            <span class="category-badge daily-use">日常</span>
+            
+            <div class="meaning">
+                <strong>意味：</strong>遅れたくないね / 遅刻したくないよね
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>"We"で仲間意識を出す優しい表現。"I don't want YOU to be late"（あなたを遅刻させたくない）より柔らかく、一緒に行動している感じを出せる。</p>
+            </div>
+
+            <div class="examples">
+                <h3>💬 ネイティブの使用例</h3>
+                
+                <div class="example-item">
+                    <strong>【授業前に友達を急かす】</strong><br>
+                    A: "Just give me five more minutes..."<br>
+                    B: "Come on, we don't want to be late for class!"<br>
+                    <em>→ 命令口調にならず、優しく促せる</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【映画館へ向かう時】</strong><br>
+                    "The movie starts at 7. We don't want to be late!"<br>
+                    <em>→ 一緒に行く人に伝える</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【バスに乗り遅れそう】</strong><br>
+                    A: "Should we run?"<br>
+                    B: "Yeah, we don't want to be late for the bus."<br>
+                    <em>→ 共同で行動する時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【面接・大事な予定】</strong><br>
+                    "Let's leave now. We don't want to be late for the interview."<br>
+                    <em>→ 重要な予定の前に</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【パーティーの待ち合わせ】</strong><br>
+                    "Are you ready? We don't want to be late to Sarah's party."<br>
+                    <em>→ 友達同士の約束で</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【フライト前】</strong><br>
+                    "We should head to the airport. We don't want to be late for our flight."<br>
+                    <em>→ 旅行の時に使える</em>
+                </div>
+            </div>
+
+            <div class="native-feeling" style="background: #e8f5ff; margin-top: 20px;">
+                <h3>🎯 似た表現との違い</h3>
+                <p><strong>• "We don't want to be late"</strong> - 一番ソフト、チーム感</p>
+                <p><strong>• "We're gonna be late"</strong> - 事実を伝える、少し焦り</p>
+                <p><strong>• "Hurry up or we'll be late"</strong> - 急かす、やや強め</p>
+                <p><strong>• "You're making us late"</strong> - 責める、強い</p>
+                
+                <p style="margin-top: 15px;"><strong>カナダでの使用：</strong> 友達同士、家族間で頻繁に使う。丁寧で配慮のある表現として好まれる。</p>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">Could I have a word with you?</div>
+            <span class="category-badge formal">フォーマル</span>
+            
+            <div class="meaning">
+                <strong>意味：</strong>ちょっとお話しいいですか?
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>フォーマルで丁寧な表現。真面目な話がある予感がする。"a word"=短い話、という建前（実際は長いことも多い）。プライベートな会話をしたい時の合図。</p>
+            </div>
+
+            <div class="examples">
+                <h3>💬 ネイティブの使用例</h3>
+                
+                <div class="example-item">
+                    <strong>【上司が部下に】</strong><br>
+                    "Could I have a word with you in my office?"<br>
+                    <em>→ フィードバックや相談がある時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【先生が学生に】</strong><br>
+                    "Could I have a word with you after class?"<br>
+                    <em>→ 成績や課題について話したい時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【同僚同士で】</strong><br>
+                    "Could I have a word when you have a moment?"<br>
+                    <em>→ 他の人がいない所で話したい時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>🎯 カナダでの使用：</strong> 学校、職場でよく聞く。特に先生、上司から言われる可能性大。少し緊張感がある表現。
+                </div>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">All this time</div>
+            
+            <div class="movie-context">
+                🎬 映画では：時間の経過を表現するシーン
+            </div>
+
+            <div class="meaning">
+                <strong>意味：</strong>ずっとこの間 / この間ずっと
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>驚き・気づきのニュアンス。「まさかずっと〜だったなんて」という感情を含む。</p>
+            </div>
+
+            <div class="examples">
+                <h3>使い方</h3>
+                <div class="example-item">"All this time, I thought you were in Tokyo!"</div>
+                <div class="example-item">"She was lying all this time??"</div>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">Take the risk</div>
+            
+            <div class="movie-context">
+                🎬 映画では：修道院長が危険を承知で彼女を匿う決断をする場面
+            </div>
+
+            <div class="meaning">
+                <strong>意味：</strong>リスクを取る / 覚悟を決める
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>リスクを「取る」=覚悟を決めて挑戦する。前向きな決断のニュアンス。</p>
+            </div>
+
+            <div class="examples">
+                <h3>使い方</h3>
+                <div class="example-item">"I'm gonna take the risk and start my own business."</div>
+                <div class="example-item">"Should we take the risk?" (やってみる？)</div>
+                <div class="example-item">カナダは起業文化もあるので聞くかも</div>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">That's what it's about</div>
+            
+            <div class="meaning">
+                <strong>意味：</strong>それが本質だ / それこそが大事
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>核心を突く時に使う。価値観を語る決めゼリフ。</p>
+            </div>
+
+            <div class="examples">
+                <h3>使い方</h3>
+                <div class="example-item">"Helping others - that's what it's about."</div>
+                <div class="example-item">"That's what life's all about!"</div>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div class="phrase-title">Disguise</div>
+            
+            <div class="movie-context">
+                🎬 映画では：シスターに変装する超重要ワード！
+            </div>
+
+            <div class="meaning">
+                <strong>意味：</strong>変装 / 仮装
+            </div>
+
+            <div class="native-feeling">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>比喩的にも使える便利な単語。「見かけと違う」というニュアンス。</p>
+            </div>
+
+            <div class="examples">
+                <h3>使い方</h3>
+                <div class="example-item">"It's a blessing in disguise." (災い転じて福となす)</div>
+                <div class="example-item">ハロウィンで："What's your disguise?"</div>
+            </div>
+        </div>
+
+        <!-- カナダ留学フレーズへのリンク -->
+        <div class="bonus-section">
+            <h2>🇨🇦 カナダ留学で学んだフレーズ</h2>
+            
+            <div class="tip-box">
+                <h3 style="margin-bottom: 10px;">別ページで詳しく解説中！</h3>
+                <p>Sister Actとは別に、カナダ留学で実際に聞いたフレーズを専用ページにまとめました。</p>
+                
+                <p style="margin-top: 15px;"><strong>収録フレーズ：</strong></p>
+                <p>💬 "It is what it is"（しょうがない）</p>
+                <p>💬 "Take it easy"（気楽にね）</p>
+                <p>💬 "Get outta here"（マジで!?）</p>
+                
+                <p style="margin-top: 15px;">
+                    <a href="daily-phrases-1.html" style="display: inline-block; background: white; color: #f5576c; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 10px;">
+                        🇨🇦 日常会話フレーズを見る
+                    </a>
+                </p>
+                <p style="margin-top: 10px;">
+                    <a href="index.html" style="display: inline-block; background: rgba(255,255,255,0.3); color: white; padding: 10px 20px; text-decoration: none; border-radius: 25px; font-weight: bold; border: 2px solid white;">
+                        🏠 メインページに戻る
+                    </a>
+                </p>
+            </div>
+
+            <div class="tip-box" style="margin-top: 20px;">
+                <h3>🎯 今日からできる練習法</h3>
+                <p>✅ まず"Take it easy!"を別れ際に3回使ってみる</p>
+                <p>✅ 映画のシーンと同じ状況に出会ったら、そのフレーズを思い出して使う</p>
+                <p>✅ 無理にフレーズを詰め込まず、自然な場面で1つずつ試す</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>🎬 Sister Actから学んで、カナダ留学で実践しよう！</p>
+            <p style="margin-top: 10px;">映画を見ながら、このページを開いて復習してね 📝</p>
+        </footer>
+    </div>
+
+    <script>
+        // チェックボックスの状態を管理
+        function toggleCheck(element, checkboxId) {
+            const checkbox = document.getElementById(checkboxId);
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                element.classList.add('checked');
+            } else {
+                element.classList.remove('checked');
+            }
+            
+            // LocalStorageに保存
+            saveCheckboxState(checkboxId, checkbox.checked);
+            
+            // 使用回数を更新
+            updateUsageCount(checkboxId);
+        }
+
+        // LocalStorageに保存
+        function saveCheckboxState(checkboxId, checked) {
+            localStorage.setItem(checkboxId, checked);
+            
+            // 使用回数もカウント
+            if (checkboxId.includes('today') && checked) {
+                const phraseKey = checkboxId.replace('_today', '');
+                let count = parseInt(localStorage.getItem(phraseKey + '_count') || '0');
+                count++;
+                localStorage.setItem(phraseKey + '_count', count);
+            }
+        }
+
+        // 使用回数を表示
+        function updateUsageCount(checkboxId) {
+            const phraseKey = checkboxId.replace('_today', '').replace('_week', '').replace('_master', '');
+            const count = parseInt(localStorage.getItem(phraseKey + '_count') || '0');
+            const countElement = document.getElementById(phraseKey + '_count');
+            if (countElement) {
+                countElement.textContent = `使用回数: ${count}回`;
+            }
+        }
+
+        // ページ読み込み時にチェックボックスの状態を復元
+        function loadCheckboxStates() {
+            const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                const saved = localStorage.getItem(checkbox.id);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                    checkbox.parentElement.classList.add('checked');
+                }
+                
+                // 使用回数を更新
+                updateUsageCount(checkbox.id);
+            });
+        }
+
+        // ページ読み込み時に実行
+        loadCheckboxStates();
+    </script>
+</body>
+
+</html>

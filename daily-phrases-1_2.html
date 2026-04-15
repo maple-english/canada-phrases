@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常会話フレーズ #1 - It is what it is 🇨🇦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #ee5a24;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .flag {
+            font-size: 3em;
+            margin: 15px 0;
+        }
+
+        .print-button {
+            background: #ee5a24;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            background: #ff6b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(238, 90, 36, 0.4);
+        }
+
+        .phrase-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .phrase-title {
+            font-size: 2em;
+            color: #ee5a24;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+
+        .meaning-box {
+            background: #fff4e6;
+            padding: 15px;
+            border-left: 5px solid #ff6b6b;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .meaning-box strong {
+            color: #ee5a24;
+            font-size: 1.1em;
+        }
+
+        .brain-image {
+            background: #e8f5ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .brain-image h3 {
+            color: #0066cc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+
+        .examples-box {
+            background: #f0fff4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .examples-box h3 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .example-item {
+            margin: 12px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            font-size: 1.05em;
+        }
+
+        .note-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #ffc107;
+        }
+
+        .note-box h3 {
+            color: #ff6f00;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .practice-tips {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .practice-tips h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .tip-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border-left: 4px solid white;
+        }
+
+        .date-stamp {
+            text-align: center;
+            color: #999;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        /* 印刷用スタイル */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            header {
+                box-shadow: none;
+                border: 2px solid #ee5a24;
+            }
+
+            .phrase-section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+            }
+
+            .practice-tips {
+                background: white;
+                border: 2px solid #667eea;
+                color: #333;
+                page-break-inside: avoid;
+            }
+
+            .practice-tips h2 {
+                color: #667eea;
+            }
+
+            .tip-item {
+                background: #f5f5f5;
+                border-left-color: #667eea;
+                color: #333;
+            }
+
+            footer {
+                color: #666;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .phrase-title {
+                font-size: 1.6em;
+            }
+
+            header {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="flag">🇨🇦</div>
+            <h1>日常会話フレーズ #1</h1>
+            <p class="subtitle">Toronto, Ontario で実際に聞いた実用英語</p>
+            <button class="print-button" onclick="window.print()">📄 印刷する</button>
+        </header>
+
+        <div class="date-stamp">
+            学習開始日：2026年4月
+        </div>
+
+        <!-- It is what it is -->
+        <div class="phrase-section">
+            <div class="phrase-title">It is what it is</div>
+
+            <div class="meaning-box">
+                <strong>意味：</strong>しょうがない / そういうもんだ / 受け入れるしかない
+            </div>
+
+            <div class="brain-image">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p><strong>🤷 肩をすくめる感じ</strong></p>
+                <p style="margin-top: 10px;">
+                    変えられない現実を認める「諦観」+「達観」が混ざった表現。でも決してネガティブじゃなく、むしろ前向き。グチグチ言わず受け入れて前に進む、大人の態度を表す。
+                </p>
+                <p style="margin-top: 10px;">
+                    完璧主義じゃなく、「人生そういうこともあるよね」という現実的な姿勢。カナダ人は特にこのマインドセットを持っている人が多い。
+                </p>
+            </div>
+
+            <div class="examples-box">
+                <h3>💬 実際に聞いた・使えるシーン（たっぷり20パターン）</h3>
+                
+                <div class="example-item">
+                    <strong>【天気が悪い時】</strong><br>
+                    A: "Ugh, it's raining again."<br>
+                    B: "Yeah, but it is what it is. At least it's not snowing!"<br>
+                    <em>→ カナダの天気あるある</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【Tim Hortonsの行列】</strong><br>
+                    A: "The Tim Hortons line is so long..."<br>
+                    B: "It is what it is. Everyone needs their coffee."<br>
+                    <em>→ 朝の定番会話</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【就活・面接の結果】</strong><br>
+                    A: "I didn't get the job."<br>
+                    B: "That's tough, but it is what it is. Something better will come along."<br>
+                    <em>→ 前向きな励まし</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【バスの遅延】</strong><br>
+                    A: "The TTC is late again..."<br>
+                    B: "It is what it is. Welcome to Toronto transit!"<br>
+                    <em>→ TTCあるある（トロントの公共交通）</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【家賃の高さ】</strong><br>
+                    A: "This apartment is $2500 for a studio?!"<br>
+                    B: "Yeah, rent in Toronto is insane, but it is what it is."<br>
+                    <em>→ トロント生活の現実</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【冬の寒さ】</strong><br>
+                    A: "It's -20°C today!"<br>
+                    B: "It is what it is. This is Canada in January."<br>
+                    <em>→ カナダの冬を受け入れる</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【試験の結果】</strong><br>
+                    A: "I got a B on the exam. I was hoping for an A."<br>
+                    B: "You studied hard. It is what it is."<br>
+                    <em>→ 努力したけど結果が伴わなかった時</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【レストランの待ち時間】</strong><br>
+                    Host: "It'll be about 45 minutes for a table."<br>
+                    You: "Okay, it is what it is. We'll wait."<br>
+                    <em>→ 待つしかない状況</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【売り切れ商品】</strong><br>
+                    A: "They're out of the pumpkin spice latte already?"<br>
+                    B: "Yeah, it is what it is. Let's try something else."<br>
+                    <em>→ 秋のスタバあるある</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【スポーツの試合結果】</strong><br>
+                    A: "The Leafs lost again..."<br>
+                    B: "It is what it is. There's always next game."<br>
+                    <em>→ トロントホッケーファンの定番反応</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【渋滞】</strong><br>
+                    A: "Traffic on the 401 is terrible!"<br>
+                    B: "It is what it is. This is rush hour."<br>
+                    <em>→ トロントの高速道路あるある</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【友達の予定変更】</strong><br>
+                    A: "Sorry, I have to cancel tonight."<br>
+                    B: "No worries, it is what it is. Let's reschedule!"<br>
+                    <em>→ 柔軟に対応する姿勢</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【WiFiの不調】</strong><br>
+                    A: "The WiFi keeps cutting out during my online class."<br>
+                    B: "Frustrating, but it is what it is. Maybe hotspot?"<br>
+                    <em>→ オンライン授業あるある</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【課題の締め切り】</strong><br>
+                    A: "I wish we had more time for this essay."<br>
+                    B: "Me too, but the deadline is tomorrow. It is what it is."<br>
+                    <em>→ 変えられない締め切り</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【シフトの変更】</strong><br>
+                    A: "They changed my shift to weekends."<br>
+                    B: "That sucks, but it is what it is. At least you have a job."<br>
+                    <em>→ 状況を受け入れつつポジティブに</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【コンサートのキャンセル】</strong><br>
+                    A: "The concert got canceled due to weather."<br>
+                    B: "That's disappointing, but it is what it is. Safety first."<br>
+                    <em>→ 残念だけど仕方ない</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【留学生ビザの遅延】</strong><br>
+                    A: "My study permit is taking forever..."<br>
+                    B: "Immigration is slow, but it is what it is. It'll come."<br>
+                    <em>→ 留学生あるある</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【レストランのメニュー変更】</strong><br>
+                    A: "They don't have my favorite dish anymore."<br>
+                    B: "Really? Well, it is what it is. Let's try something new!"<br>
+                    <em>→ 変化を受け入れる</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【SNSのいいね数】</strong><br>
+                    A: "My post didn't get many likes."<br>
+                    B: "It is what it is. Don't worry about the numbers!"<br>
+                    <em>→ SNS疲れに対して</em>
+                </div>
+
+                <div class="example-item">
+                    <strong>【年齢のこと】</strong><br>
+                    A: "I can't believe I'm turning 30 next month."<br>
+                    B: "Time flies! But it is what it is. Age is just a number."<br>
+                    <em>→ 避けられない現実</em>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <h3>⚠️ 使用上の注意</h3>
+                <p><strong>❌ 使いすぎ注意：</strong></p>
+                <p style="margin-top: 8px;">
+                    あまりに頻繁に使うと「諦めがちな人」「やる気がない」と思われる可能性あり。
+                </p>
+                
+                <p style="margin-top: 15px;"><strong>✅ 適度に使えば：</strong></p>
+                <p style="margin-top: 8px;">
+                    「現実的で大人な対応ができる人」「柔軟性がある」という印象を与える。
+                </p>
+
+                <p style="margin-top: 15px;"><strong>🎯 ベストな使い方：</strong></p>
+                <p style="margin-top: 8px;">
+                    本当にどうしようもない状況（天気、交通、他人の決定など）に対して、感情的にならず落ち着いて受け入れる姿勢を示す時に使う。
+                </p>
+            </div>
+
+            <div class="brain-image">
+                <h3>🌍 文化的背景</h3>
+                <p>
+                    カナダは多文化主義で、様々な価値観が共存する社会。そのため「完璧を求めすぎない」「柔軟に対応する」という姿勢が重視される。
+                </p>
+                <p style="margin-top: 10px;">
+                    また、冬の厳しい気候、広大な国土による物理的制約など、「コントロールできないこと」が多い環境も、このフレーズがよく使われる理由の一つ。
+                </p>
+            </div>
+        </div>
+
+        <!-- Take it easy -->
+        <div class="phrase-section">
+            <div class="phrase-title">Take it easy</div>
+
+            <div class="meaning-box">
+                <strong>意味：</strong>落ち着いて / じゃあね / 気楽にね
+            </div>
+
+            <div class="brain-image">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>
+                    「力抜いて、リラックスして」という温かい気持ち。別れ際の挨拶として超定番で、相手の幸せを願う優しいトーンが含まれる。
+                </p>
+                <p style="margin-top: 10px;">
+                    カナダ人は特にフレンドリーなので、知り合いだけでなく、お店の店員さんやバスの運転手さんにも使う。
+                </p>
+            </div>
+
+            <div class="examples-box">
+                <h3>💬 カナダでの使用例</h3>
+                
+                <div class="example-item">
+                    <strong>友達と別れる時：</strong><br>
+                    "See you tomorrow! Take it easy!"<br>
+                    （また明日ね！じゃあね！）
+                </div>
+
+                <div class="example-item">
+                    <strong>焦ってる人に：</strong><br>
+                    "Hey, take it easy. It's gonna be fine."<br>
+                    （ちょっと落ち着いて。大丈夫だから）
+                </div>
+
+                <div class="example-item">
+                    <strong>お店を出る時：</strong><br>
+                    "Thanks! Take it easy!"<br>
+                    （ありがとう！良い一日を！）
+                </div>
+
+                <div class="example-item">
+                    <strong>電話を切る時：</strong><br>
+                    "Alright, I'll talk to you later. Take it easy!"<br>
+                    （じゃあまた後で話そう。じゃあね！）
+                </div>
+            </div>
+
+            <div class="note-box">
+                <h3>🎯 カナダでの頻出度</h3>
+                <p>
+                    <strong>超高頻度！</strong> 1日に何度も聞くはず。"Bye"や"See you"と同じくらいカジュアルに使われる。
+                </p>
+                <p style="margin-top: 10px;">
+                    返事は"You too!"や"Yeah, you too!"が定番。
+                </p>
+            </div>
+        </div>
+
+        <!-- Get outta here -->
+        <div class="phrase-section">
+            <div class="phrase-title">Get outta here</div>
+
+            <div class="meaning-box">
+                <strong>意味：</strong>①出てけ（怒り） ②マジで!?（驚き）
+            </div>
+
+            <div class="brain-image">
+                <h3>🧠 ネイティブの脳内イメージ</h3>
+                <p>
+                    <strong>文脈とトーンで180度変わる魔法のフレーズ！</strong>
+                </p>
+                <p style="margin-top: 10px;">
+                    友達同士の会話では、ほぼ100%「マジで!?」という驚きの意味。信じられない話を聞いた時の反応として超よく使う。
+                </p>
+            </div>
+
+            <div class="examples-box">
+                <h3>💬 カナダでの使用例（驚き）</h3>
+                
+                <div class="example-item">
+                    <strong>友達：</strong> "I got accepted to UofT!"<br>
+                    <strong>あなた：</strong> "Get outta here! Really?? That's amazing!"<br>
+                    （マジで!? 本当に!? すごいじゃん！）
+                </div>
+
+                <div class="example-item">
+                    <strong>友達：</strong> "It's gonna snow tomorrow."<br>
+                    <strong>あなた：</strong> "Get outta here! It's April!"<br>
+                    （うそでしょ!? もう4月なのに！）
+                </div>
+
+                <div class="example-item">
+                    <strong>友達：</strong> "I met Drake at the coffee shop."<br>
+                    <strong>あなた：</strong> "Get outta here! No way!"<br>
+                    （まさか! ありえない！）
+                </div>
+            </div>
+
+            <div class="note-box">
+                <h3>🎯 発音のコツ</h3>
+                <p>
+                    "Get out of here" → "Get outta here" と省略して発音。"outta"は「アウタ」って感じ。
+                </p>
+                <p style="margin-top: 10px;">
+                    驚きの時は語尾を上げる：Get outta here! ⤴
+                </p>
+            </div>
+        </div>
+
+        <!-- 練習のコツ -->
+        <div class="practice-tips">
+            <h2>🎯 今日からできる実践練習</h2>
+            
+            <div class="tip-item">
+                <strong>Day 1-3：まずは"Take it easy!"</strong><br>
+                別れ際に3回使ってみる。カフェ、図書館、友達と別れる時など。
+            </div>
+
+            <div class="tip-item">
+                <strong>Day 4-7："It is what it is"にチャレンジ</strong><br>
+                冬の寒さ、バスの遅れ、行列など、カナダあるあるの状況で使ってみる。
+            </div>
+
+            <div class="tip-item">
+                <strong>Week 2："Get outta here!"で驚きを表現</strong><br>
+                友達が面白い話をした時に、自然に出るまで練習。
+            </div>
+
+            <div class="tip-item">
+                <strong>継続のコツ：</strong><br>
+                無理にフレーズを詰め込まない。自然な場面で1つずつ試す。使えたら自分を褒める！
+            </div>
+
+            <div class="tip-item">
+                <strong>観察も大事：</strong><br>
+                カナダ人がこれらのフレーズを使う場面をよく観察。トーン、表情、タイミングを真似してみる。
+            </div>
+        </div>
+
+        <footer>
+            <p>🇨🇦 Toronto留学で学んだリアルな英語フレーズ</p>
+            <p style="margin-top: 10px;">毎日少しずつ、自然に使えるようになろう！</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">💡 新しいフレーズを学んだら、このページに追加していこう</p>
+            <p style="margin-top: 20px;">
+                <a href="index.html" style="display: inline-block; background: white; color: #ee5a24; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold;">
+                    🏠 メインページに戻る
+                </a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
